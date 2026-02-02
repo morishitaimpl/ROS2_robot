@@ -66,7 +66,36 @@ source install/setup.bash
 ros2 topic pub -r 10 /model/raspbot/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2}, angular: {z: 0.3}}"
 ```
 
-> `raspbot_sim` はGazeboの DiffDrive システムを使っているため、制御トピックは `/model/raspbot/cmd_vel` です。
+# ソースコードをシミュレータ上で動かす手順
+> `raspbot_sim` はGazeboの MecanumDrive システムを使っているため、制御トピックは `/model/raspbot/cmd_vel` です（`linear.y` も有効）。
+
+## モーター動作確認（テストスクリプト）
+
+`motor_test_sim.py` は、シミュレータ用に `cmd_vel`（Twist）を一定時間publishして停止するテストです。
+
+前提: `ros2 launch raspbot_sim sim.launch.py` でシミュレータが起動していること。
+
+別ターミナルで同じコンテナに入って実行します。
+
+```bash
+docker exec -it ros2_sim bash
+cd /work/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+python3 /work/ros2_ws/src/motor_test_sim.py --seconds 1.0 --vx 0.2
+```
+
+- **前進**: `--vx 0.2`
+- **横移動（メカナム）**: `--vy 0.2`
+- **旋回**: `--wz 0.8`
+
+例:
+
+```bash
+python3 /work/ros2_ws/src/motor_test_sim.py --seconds 1.0 --vx 0.2
+python3 /work/ros2_ws/src/motor_test_sim.py --seconds 1.0 --vy 0.2
+python3 /work/ros2_ws/src/motor_test_sim.py --seconds 1.0 --wz 0.8
+```
 
 ## noVNCの基本操作
 
