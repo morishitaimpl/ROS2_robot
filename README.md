@@ -1,52 +1,24 @@
 # ROS2_robot_Gazebo
 
-## 環境構築
+# 環境構築
+macOS（Apple Silicon）上で **ROS2 Humble + Gazebo（Ignition Fortress）** のシミュレーション開発を行う手順です。  
 
-- 実機の環境であるubuntu22.04とROS2 Humbleをローカルで動かすためのシミュレーション環境の構築手順をまとめます。
+## 前提
 
-## ロボットのシミュレーション環境構築手順（macOS + Apple Silicon想定）
+- **Docker Desktop** をインストール: `https://www.docker.com/products/docker-desktop/`
+- **Apple Siliconの場合**: Docker Desktop の設定 `Use Rosetta for x86/amd64 emulation` は **OFF推奨**
 
-### 1. リポジトリのクローン
+## 手順（確実に「4輪モデルが表示」まで）
 
-- このページのURLをgit cloneしてください。
-
-### 2. Dockerインストール
-
-Docker Desktop をインストールします
-`https://www.docker.com/products/docker-desktop/`
-
-#### 2.1 Docker Desktopで「Use Rosetta for x86/amd64 emulation」をOFF（macOS）
-
-- windows環境の場合は不要
-
-1. Docker Desktop を起動
-2. 画面右上（メニューバー or アプリ内）の 歯車アイコン（Settings） をクリック
-3. 左サイドバーから General を選択
-4. Use Rosetta for x86/amd64 emulation on Apple Silicon
-   というチェック項目を探す
-5. チェックを外す（OFF）
-6. 右下の Apply & Restart をクリック
-   - Docker Desktop が再起動される
-
-> 補足: Gazebo（Ignition Fortress）は**コンテナ内**で動かします。macOS側にGazeboを別途インストールする必要はありません。
-
-### 3. Docker イメージのビルド
-
-- 10分ほどかかるので待機\
+# 1. Dockerイメージをビルド
 
 ```bash
 docker build -t ros2-humble-gazebo .
 ```
 
-```bash
-docker build --no-cache -t ros2-humble-gazebo .
-```
+# 2. noVNCコンテナを起動
 
-- キャッシュを使わない場合のコマンド例
-
-### 4. コンテナGUIをブラウザで見る（noVNC方式 / 推奨）
-
-コンテナ内で仮想ディスプレイ（Xvfb）を起動し、noVNCでブラウザ表示します。
+リポジトリを `/work` にマウントします（`ros2_ws/` をコンテナ内でビルドするため）。
 
 ```bash
 docker run -it --rm \
@@ -58,43 +30,11 @@ docker run -it --rm \
   ros2-humble-gazebo /usr/local/bin/start-vnc.sh
 ```
 
-ブラウザで `http://localhost:6080/vnc.html` を開きます（ここにGazeboのウィンドウが出ます）。
+起動したらブラウザで **`http://localhost:6080/vnc.html`** を開きます（ここにGazeboのウィンドウが出ます）。
 
-その後、上の `docker run ...` で開いている**コンテナのシェル（root@...）**でGazeboを起動します。
+# 3. ワークスペースをビルド（コンテナ内）
 
-```bash
-ign gazebo --versions
-ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
-```
-
-noVNC画面（添付のようなUbuntuロゴ/黒背景）は「デスクトップが起動した状態」です。Gazeboを起動するとここにウィンドウが出ます。
-
-- **操作**: マウス/キーボード操作はそのままブラウザ上で可能です
-- **noVNCのサイドバー**: 左端のタブ（矢印）から開けます（特殊キー送信 / フルスクリーン等）
-- **ウィンドウ操作（Fluxbox）**: 右クリックでメニュー、ウィンドウが前面に出ない時は `Alt+Tab`
-- **別コマンドを打ちたい**: mac側の別ターミナルで `docker exec -it ros2_sim bash` を使うと、同じコンテナにもう1つシェルを開けます
-
-#### 4.1 ロボットが最初から出るデモワールド例
-
-`empty.sdf` は空のワールドなので、ロボットは出てきません。まずはロボットが含まれるデモで動作確認します。
-
-```bash
-ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/diff_drive.sdf
-```
-
-同梱ワールド一覧:
-
-```bash
-ls /usr/share/ignition/ignition-gazebo6/worlds
-```
-
-## Raspbot v2相当モデルで開発する（B: 推奨フロー）
-
-このリポジトリには `ros2_ws/`（ROS2ワークスペース）を同梱しています。
-
-### 1) ワークスペースをビルド（コンテナ内）
-
-noVNCコンテナ起動後、**コンテナ内**で以下を実行します。
+上の `docker run` で開いている **コンテナのシェル（`root@...`）** で実行します。
 
 ```bash
 cd /work/ros2_ws
@@ -103,17 +43,20 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-### 2) RaspbotモデルをGazeboにスポーン
+# 4. シミュレーター起動（4輪モデルをスポーン）
 
 ```bash
 ros2 launch raspbot_sim sim.launch.py
 ```
 
-起動すると noVNC 画面にGazeboが開き、`raspbot` がスポーンされます。
+#### 確認ポイント
 
-### 3) 自作コード（ROS2ノード）をシミュレーター上で動かす
+- noVNCのGazebo画面が開く
+- 右側の **Entity Tree** に **`raspbot`** が出る（4輪モデルがスポーンされている）
 
-基本は **`cmd_vel` をpublish** してロボットを動かします。例（別ターミナルで）:
+# 5. ロボットを動かす（`cmd_vel`）
+
+別のmacターミナルを開いて、同じコンテナに入ります。
 
 ```bash
 docker exec -it ros2_sim bash
@@ -123,34 +66,19 @@ source install/setup.bash
 ros2 topic pub -r 10 /model/raspbot/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2}, angular: {z: 0.3}}"
 ```
 
-> `raspbot_sim` のSDFは Gazebo の DiffDrive システムを使っているため、デフォルトの制御トピックは `/model/raspbot/cmd_vel` になります。
+> `raspbot_sim` はGazeboの DiffDrive システムを使っているため、制御トピックは `/model/raspbot/cmd_vel` です。
 
-### 5. 動作確認（この順で）
+## noVNCの基本操作
 
-#### 6.1 Gazebo（Ignition Fortress）の確認
+- **マウス/キーボード**: そのままブラウザ上で操作できます
+- **noVNCサイドバー**: 左端のタブ（矢印）から開けます（特殊キー送信 / フルスクリーン等）
+- **ウィンドウ切り替え**: `Alt+Tab`
 
-```bash
-ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
-```
+## トラブルシュート
 
-#### 6.2 X11 疎通確認（コンテナ内で）
-
-```bash
-xeyes
-```
-
-#### 6.3 ROS2経由でGazebo起動（コンテナ内）
-
-ROS経由:
-
-```bash
-source /opt/ros/humble/setup.bash
-ros2 launch ros_gz_sim gz_sim.launch.py gz_args:="-v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf"
-```
-
-### 7. ROS2 × Gazebo 連携確認（例）
-
-```bash
-ros2 topic list
-ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
-```
+- **`http://localhost:6080/vnc.html` が開けない**
+  - `docker ps` で `ros2_sim` が起動しているか確認
+- **Gazeboが前面に出ない**
+  - `Alt+Tab`、または右クリックメニューからウィンドウを選択
+- **`raspbot` が出ない**
+  - `ros2 launch raspbot_sim sim.launch.py` のログにエラーがないか確認（特に `ros2 run ros_gz_sim create ...`）
