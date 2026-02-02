@@ -91,7 +91,7 @@ docker run -it --rm \
 #### 6.1 Gazebo（Ignition Fortress）の確認
 
 ```bash
-ign --version
+ign gazebo --versions
 ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
 ```
 
@@ -100,6 +100,27 @@ ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
 ```bash
 xeyes
 ```
+
+#### 6.2.1 OpenGL/GLX 疎通確認（コンテナ内で・GUIクラッシュ時に有効）
+
+GazeboのGUIが `Failed to create OpenGL context` や `Segmentation fault` で落ちる場合、まずGLXが有効か確認します。
+
+```bash
+glxinfo -B
+glxinfo -B -i
+```
+
+`OpenGL renderer string` が表示されずエラーになる場合は、macOS側のXQuartz設定（Indirect GLX）が原因のことが多いです。
+
+#### 6.2.2 macOS（XQuartz）側のIndirect GLXを有効化（必要な場合）
+
+XQuartzを終了した上で、macOS側のターミナルで実行 → XQuartzを再起動してください。
+
+```bash
+defaults write org.xquartz.X11 enable_iglx -bool true
+```
+
+その後、XQuartz側で `xhost +localhost`（もしくは一時的に `xhost + 127.0.0.1`）を実行してから再度コンテナを起動します。
 
 #### 6.3 ROS2経由でGazebo起動（コンテナ内）
 
