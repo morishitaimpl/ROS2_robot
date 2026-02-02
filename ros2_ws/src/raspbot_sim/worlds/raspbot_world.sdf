@@ -7,6 +7,10 @@
     </physics>
 
     <plugin filename="ignition-gazebo-physics-system" name="gz::sim::systems::Physics"/>
+    <!-- Cameraなどのセンサー用（render_engineは軽めのogreを指定） -->
+    <plugin filename="ignition-gazebo-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre</render_engine>
+    </plugin>
     <plugin filename="ignition-gazebo-user-commands-system" name="gz::sim::systems::UserCommands"/>
     <plugin filename="ignition-gazebo-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
 

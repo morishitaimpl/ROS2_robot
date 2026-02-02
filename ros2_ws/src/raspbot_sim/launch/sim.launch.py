@@ -27,11 +27,28 @@ def generate_launch_description() -> LaunchDescription:
         output="screen",
     )
 
+    # Bridge: cmd_vel (ROS->Gazebo), camera image/info (Gazebo->ROS), ultrasonic scan (Gazebo->ROS), clock (Gazebo->ROS)
+    bridge = ExecuteProcess(
+        cmd=[
+            "bash",
+            "-lc",
+            "source /opt/ros/humble/setup.bash && "
+            "ros2 run ros_gz_bridge parameter_bridge "
+            "/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock "
+            "/model/raspbot/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist "
+            "/raspbot/camera@sensor_msgs/msg/Image[ignition.msgs.Image "
+            "/raspbot/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo "
+            "/raspbot/ultrasonic@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan",
+        ],
+        output="screen",
+    )
+
     # Delay spawning slightly to avoid race on startup
     return LaunchDescription(
         [
             gazebo,
             TimerAction(period=3.0, actions=[spawn]),
+            TimerAction(period=3.5, actions=[bridge]),
         ]
     )
 
