@@ -1,7 +1,5 @@
 # ROS2_robot_Gazebo
 
-mac bookで作業する場合のubuntu22.04とROS2によるロボット開発
-
 ## 環境構築
 
 - 実機の環境であるubuntu22.04とROS2 Humbleをローカルで動かすためのシミュレーション環境の構築手順をまとめます。
@@ -14,7 +12,8 @@ mac bookで作業する場合のubuntu22.04とROS2によるロボット開発
 
 ### 2. Dockerインストール
 
-Docker Desktop をインストールします（リンク: `https://www.docker.com/products/docker-desktop/`）。
+Docker Desktop をインストールします
+`https://www.docker.com/products/docker-desktop/`
 
 #### 2.1 Docker Desktopで「Use Rosetta for x86/amd64 emulation」をOFF（macOS）
 
