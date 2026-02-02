@@ -26,6 +26,7 @@ docker run -it --rm \
   -p 6080:6080 \
   -p 5900:5900 \
   -v "$PWD":/work \
+  -e GEOMETRY=1920x1080 \
   --name ros2_sim \
   ros2-humble-gazebo /usr/local/bin/start-vnc.sh
 ```
