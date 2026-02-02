@@ -39,10 +39,24 @@ RUN apt update && apt install -y \
     python3-rosdep \
  && rm -rf /var/lib/apt/lists/*
 
+# ===== noVNC GUI (XQuartzがGLXで落ちる場合の代替) =====
+RUN apt update && apt install -y \
+    xvfb \
+    x11vnc \
+    novnc \
+    websockify \
+    fluxbox \
+ && rm -rf /var/lib/apt/lists/*
+
 # ===== rosdep =====
 RUN rosdep init || true
 RUN rosdep update
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+
+COPY start-vnc.sh /usr/local/bin/start-vnc.sh
+RUN chmod +x /usr/local/bin/start-vnc.sh
+
+EXPOSE 6080 5900
 
 CMD ["bash"]

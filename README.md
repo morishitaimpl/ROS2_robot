@@ -85,6 +85,28 @@ docker run -it --rm \
 > macOSでは `/tmp/.X11-unix` をマウントする方式は基本的に効きません（Linux向け手順）。XQuartzへTCPで描画します。
 >
 > `Failed to create OpenGL context` が出る場合は、上記のように **Qt/Mesaをソフトウェアレンダリング**に寄せるとGUIが起動しやすいです（速度は落ちます）。
+>
+> それでも `GLXCreateNewContext` などで落ちる場合、XQuartz経由のGLXが環境的に厳しいことがあります。その場合は下の **noVNC方式（推奨）**を使ってください。
+
+### 5.1 コンテナGUIをブラウザで見る（noVNC方式 / 推奨）
+
+XQuartzを使わず、コンテナ内で仮想ディスプレイ（Xvfb）を起動し、noVNCでブラウザ表示します。
+
+```bash
+docker build -t ros2-humble-gazebo .
+docker run -it --rm \
+  --platform linux/arm64 \
+  -p 6080:6080 \
+  -p 5900:5900 \
+  --name ros2_sim \
+  ros2-humble-gazebo /usr/local/bin/start-vnc.sh
+```
+
+ブラウザで `http://localhost:6080/vnc.html` を開き、コンテナのシェルでGazeboを起動します。
+
+```bash
+ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
+```
 
 ### 6. 動作確認（この順で）
 
