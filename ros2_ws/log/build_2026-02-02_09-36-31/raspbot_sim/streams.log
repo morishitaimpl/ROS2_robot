@@ -1,0 +1,25 @@
+[0.031s] Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+[0.053s] Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+[0.055s] Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim
+[0.058s] -- Install configuration: ""
+[0.059s] -- Execute custom install script
+[0.061s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/launch/sim.launch.py
+[0.062s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/worlds/raspbot_world.sdf
+[0.064s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.config
+[0.064s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.sdf
+[0.065s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/package_run_dependencies/raspbot_sim
+[0.066s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/parent_prefix_path/raspbot_sim
+[0.067s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.sh
+[0.068s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.dsv
+[0.069s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.sh
+[0.069s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.dsv
+[0.070s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.bash
+[0.070s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.sh
+[0.071s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.zsh
+[0.071s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.dsv
+[0.072s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.dsv
+[0.077s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/packages/raspbot_sim
+[0.077s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig.cmake
+[0.077s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig-version.cmake
+[0.078s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.xml
+[0.101s] Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim
