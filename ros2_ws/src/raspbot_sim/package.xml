@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>raspbot_sim</name>
+  <version>0.0.1</version>
+  <description>Gazebo (Ignition Fortress) simulation for raspbot v2-like robot.</description>
+  <maintainer email="implmbp228@example.com">implmbp228</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

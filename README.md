@@ -46,14 +46,14 @@ docker build --no-cache -t ros2-humble-gazebo .
 
 ### 4. コンテナGUIをブラウザで見る（noVNC方式 / 推奨）
 
-XQuartzは使わず、コンテナ内で仮想ディスプレイ（Xvfb）を起動し、noVNCでブラウザ表示します。
+コンテナ内で仮想ディスプレイ（Xvfb）を起動し、noVNCでブラウザ表示します。
 
 ```bash
-docker build -t ros2-humble-gazebo .
 docker run -it --rm \
   --platform linux/arm64 \
   -p 6080:6080 \
   -p 5900:5900 \
+  -v "$PWD":/work \
   --name ros2_sim \
   ros2-humble-gazebo /usr/local/bin/start-vnc.sh
 ```
@@ -87,6 +87,43 @@ ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/diff_drive.sdf
 ```bash
 ls /usr/share/ignition/ignition-gazebo6/worlds
 ```
+
+## Raspbot v2相当モデルで開発する（B: 推奨フロー）
+
+このリポジトリには `ros2_ws/`（ROS2ワークスペース）を同梱しています。
+
+### 1) ワークスペースをビルド（コンテナ内）
+
+noVNCコンテナ起動後、**コンテナ内**で以下を実行します。
+
+```bash
+cd /work/ros2_ws
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install
+source install/setup.bash
+```
+
+### 2) RaspbotモデルをGazeboにスポーン
+
+```bash
+ros2 launch raspbot_sim sim.launch.py
+```
+
+起動すると noVNC 画面にGazeboが開き、`raspbot` がスポーンされます。
+
+### 3) 自作コード（ROS2ノード）をシミュレーター上で動かす
+
+基本は **`cmd_vel` をpublish** してロボットを動かします。例（別ターミナルで）:
+
+```bash
+docker exec -it ros2_sim bash
+cd /work/ros2_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 topic pub -r 10 /model/raspbot/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2}, angular: {z: 0.3}}"
+```
+
+> `raspbot_sim` のSDFは Gazebo の DiffDrive システムを使っているため、デフォルトの制御トピックは `/model/raspbot/cmd_vel` になります。
 
 ### 5. 動作確認（この順で）
 

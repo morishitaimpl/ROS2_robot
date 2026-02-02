@@ -1,0 +1,4 @@
+source;share/raspbot_description/local_setup.bash
+source;share/raspbot_description/local_setup.dsv
+source;share/raspbot_description/local_setup.sh
+source;share/raspbot_description/local_setup.zsh

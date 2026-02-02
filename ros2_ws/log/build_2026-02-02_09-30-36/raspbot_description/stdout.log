@@ -1,0 +1,23 @@
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /work/ros2_ws/build/raspbot_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/urdf/raspbot.urdf.xacro
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/package_run_dependencies/raspbot_description
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/parent_prefix_path/raspbot_description
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.sh
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.sh
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.bash
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.sh
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.zsh
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/package.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/packages/raspbot_description
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig.cmake
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig-version.cmake
+-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/package.xml

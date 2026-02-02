@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>raspbot_description</name>
+  <version>0.0.1</version>
+  <description>Raspbot v2-like robot description (URDF/Xacro).</description>
+  <maintainer email="implmbp228@example.com">implmbp228</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>xacro</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

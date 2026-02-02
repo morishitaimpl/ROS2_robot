@@ -1,0 +1,1 @@
+/work/ros2_ws/build/raspbot_sim/ament_cmake_core/raspbot_simConfig.cmake

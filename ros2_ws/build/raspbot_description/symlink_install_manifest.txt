@@ -1,0 +1,16 @@
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/urdf/raspbot.urdf.xacro
+/work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/package_run_dependencies/raspbot_description
+/work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/parent_prefix_path/raspbot_description
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.sh
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.dsv
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.sh
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.dsv
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.bash
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.sh
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.zsh
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.dsv
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/package.dsv
+/work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/packages/raspbot_description
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig.cmake
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig-version.cmake
+/work/ros2_ws/install/raspbot_description/share/raspbot_description/package.xml

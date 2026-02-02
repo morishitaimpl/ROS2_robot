@@ -1,0 +1,1 @@
+Invoking command in '/work/ros2_ws/build/raspbot_sim': /usr/bin/cmake /work/ros2_ws/src/raspbot_sim -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_sim

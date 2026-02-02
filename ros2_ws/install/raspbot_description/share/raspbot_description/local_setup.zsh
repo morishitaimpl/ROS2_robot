@@ -1,0 +1,1 @@
+/work/ros2_ws/build/raspbot_description/ament_cmake_environment_hooks/local_setup.zsh

@@ -1,0 +1,32 @@
+[0.012s] Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /work/ros2_ws/src/raspbot_sim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_sim
+[0.020s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.067s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.174s] -- Configuring done
+[0.210s] -- Generating done
+[0.229s] -- Build files have been written to: /work/ros2_ws/build/raspbot_sim
+[0.232s] Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /work/ros2_ws/src/raspbot_sim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_sim
+[0.232s] Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+[0.248s] Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+[0.255s] Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim
+[0.258s] -- Install configuration: ""
+[0.259s] -- Execute custom install script
+[0.265s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/launch/sim.launch.py
+[0.273s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/worlds/raspbot_world.sdf
+[0.280s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.config
+[0.285s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.sdf
+[0.290s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/package_run_dependencies/raspbot_sim
+[0.295s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/parent_prefix_path/raspbot_sim
+[0.301s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.sh
+[0.305s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.dsv
+[0.310s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.sh
+[0.314s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.dsv
+[0.319s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.bash
+[0.324s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.sh
+[0.329s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.zsh
+[0.333s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.dsv
+[0.337s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.dsv
+[0.342s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/packages/raspbot_sim
+[0.347s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig.cmake
+[0.382s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig-version.cmake
+[0.382s] -- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.xml
+[0.382s] Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim

@@ -7,6 +7,7 @@ ENV LC_ALL=C.UTF-8
 # ===== 基本ツール =====
 RUN apt update && apt install -y \
     curl gnupg2 lsb-release sudo \
+    git \
     build-essential \
     software-properties-common \
     mesa-utils \
@@ -37,6 +38,8 @@ RUN apt update && apt install -y \
     ros-humble-ros-gz \
     gz-fortress \
     python3-rosdep \
+    python3-colcon-common-extensions \
+    python3-vcstool \
  && rm -rf /var/lib/apt/lists/*
 
 # ===== noVNC GUI (XQuartzがGLXで落ちる場合の代替) =====

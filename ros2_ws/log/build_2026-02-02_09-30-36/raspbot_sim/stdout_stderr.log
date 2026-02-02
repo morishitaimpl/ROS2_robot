@@ -1,0 +1,26 @@
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /work/ros2_ws/build/raspbot_sim
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/launch/sim.launch.py
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/worlds/raspbot_world.sdf
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.config
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.sdf
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/package_run_dependencies/raspbot_sim
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/parent_prefix_path/raspbot_sim
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.sh
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.sh
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.bash
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.sh
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.zsh
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/packages/raspbot_sim
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig.cmake
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig-version.cmake
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.xml

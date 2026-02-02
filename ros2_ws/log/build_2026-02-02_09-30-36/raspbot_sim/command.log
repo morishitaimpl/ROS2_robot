@@ -1,0 +1,6 @@
+Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /work/ros2_ws/src/raspbot_sim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_sim
+Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /work/ros2_ws/src/raspbot_sim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_sim
+Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim
+Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim

@@ -1,0 +1,2 @@
+Invoking command in '/work/ros2_ws/build/raspbot_description': /usr/bin/cmake /work/ros2_ws/src/raspbot_description -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_description
+Invoked command in '/work/ros2_ws/build/raspbot_description' returned '1': /usr/bin/cmake /work/ros2_ws/src/raspbot_description -DCMAKE_INSTALL_PREFIX=/work/ros2_ws/install/raspbot_description
