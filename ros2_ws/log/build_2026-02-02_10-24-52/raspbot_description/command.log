@@ -1,0 +1,4 @@
+Invoking command in '/work/ros2_ws/build/raspbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_description -- -j12 -l12
+Invoked command in '/work/ros2_ws/build/raspbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_description -- -j12 -l12
+Invoking command in '/work/ros2_ws/build/raspbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_description
+Invoked command in '/work/ros2_ws/build/raspbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_description
