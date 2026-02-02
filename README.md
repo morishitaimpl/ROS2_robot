@@ -75,11 +75,16 @@ docker run -it --rm \
   -e DISPLAY=host.docker.internal:0 \
   -e QT_X11_NO_MITSHM=1 \
   -e LIBGL_ALWAYS_INDIRECT=1 \
+  -e QT_OPENGL=software \
+  -e QT_QUICK_BACKEND=software \
+  -e LIBGL_ALWAYS_SOFTWARE=1 \
   --name ros2_sim \
   ros2-humble-gazebo
 ```
 
 > macOSでは `/tmp/.X11-unix` をマウントする方式は基本的に効きません（Linux向け手順）。XQuartzへTCPで描画します。
+>
+> `Failed to create OpenGL context` が出る場合は、上記のように **Qt/Mesaをソフトウェアレンダリング**に寄せるとGUIが起動しやすいです（速度は落ちます）。
 
 ### 6. 動作確認（この順で）
 
