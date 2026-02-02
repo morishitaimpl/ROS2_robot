@@ -1,0 +1,62 @@
+[0.000000] (-) TimerEvent: {}
+[0.001279] (raspbot_description) JobQueued: {'identifier': 'raspbot_description', 'dependencies': OrderedDict()}
+[0.001368] (raspbot_sim) JobQueued: {'identifier': 'raspbot_sim', 'dependencies': OrderedDict()}
+[0.001418] (raspbot_description) JobStarted: {'identifier': 'raspbot_description'}
+[0.004222] (raspbot_sim) JobStarted: {'identifier': 'raspbot_sim'}
+[0.007937] (raspbot_description) JobProgress: {'identifier': 'raspbot_description', 'progress': 'cmake'}
+[0.009701] (raspbot_description) JobProgress: {'identifier': 'raspbot_description', 'progress': 'build'}
+[0.010790] (raspbot_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/work/ros2_ws/build/raspbot_description', '--', '-j12', '-l12'], 'cwd': '/work/ros2_ws/build/raspbot_description', 'env': OrderedDict([('HOSTNAME', 'dcdd79d63fdc'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/work/ros2_ws/build/raspbot_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.015411] (raspbot_sim) JobProgress: {'identifier': 'raspbot_sim', 'progress': 'cmake'}
+[0.016054] (raspbot_sim) JobProgress: {'identifier': 'raspbot_sim', 'progress': 'build'}
+[0.017155] (raspbot_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/work/ros2_ws/build/raspbot_sim', '--', '-j12', '-l12'], 'cwd': '/work/ros2_ws/build/raspbot_sim', 'env': OrderedDict([('HOSTNAME', 'dcdd79d63fdc'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/work/ros2_ws/build/raspbot_sim'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.034791] (raspbot_description) CommandEnded: {'returncode': 0}
+[0.037456] (raspbot_description) JobProgress: {'identifier': 'raspbot_description', 'progress': 'install'}
+[0.042194] (raspbot_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/work/ros2_ws/build/raspbot_description'], 'cwd': '/work/ros2_ws/build/raspbot_description', 'env': OrderedDict([('HOSTNAME', 'dcdd79d63fdc'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/work/ros2_ws/build/raspbot_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.042960] (raspbot_sim) CommandEnded: {'returncode': 0}
+[0.043967] (raspbot_sim) JobProgress: {'identifier': 'raspbot_sim', 'progress': 'install'}
+[0.044337] (raspbot_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/work/ros2_ws/build/raspbot_sim'], 'cwd': '/work/ros2_ws/build/raspbot_sim', 'env': OrderedDict([('HOSTNAME', 'dcdd79d63fdc'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/work/ros2_ws/build/raspbot_sim'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.046128] (raspbot_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.046861] (raspbot_description) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.047955] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/urdf/raspbot.urdf.xacro\n'}
+[0.048793] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/package_run_dependencies/raspbot_description\n'}
+[0.049238] (raspbot_sim) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.049719] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/parent_prefix_path/raspbot_description\n'}
+[0.050081] (raspbot_sim) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.050428] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.sh\n'}
+[0.051028] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.dsv\n'}
+[0.051575] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/launch/sim.launch.py\n'}
+[0.052067] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.sh\n'}
+[0.052476] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.dsv\n'}
+[0.052939] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/worlds/raspbot_world.sdf\n'}
+[0.053432] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.bash\n'}
+[0.054113] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.sh\n'}
+[0.054477] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.config\n'}
+[0.054887] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.zsh\n'}
+[0.055226] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.sdf\n'}
+[0.055559] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.dsv\n'}
+[0.056024] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/package_run_dependencies/raspbot_sim\n'}
+[0.056266] (raspbot_description) StdoutLine: {'line': b'-- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/package.dsv\n'}
+[0.056738] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/parent_prefix_path/raspbot_sim\n'}
+[0.057162] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.sh\n'}
+[0.057793] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.dsv\n'}
+[0.058345] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.sh\n'}
+[0.058892] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.dsv\n'}
+[0.059375] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.bash\n'}
+[0.060120] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.sh\n'}
+[0.060697] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.zsh\n'}
+[0.061332] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.dsv\n'}
+[0.062190] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/packages/raspbot_description\n'}
+[0.062387] (raspbot_sim) StdoutLine: {'line': b'-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.dsv\n'}
+[0.062679] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig.cmake\n'}
+[0.062905] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig-version.cmake\n'}
+[0.063277] (raspbot_description) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/package.xml\n'}
+[0.064305] (raspbot_description) CommandEnded: {'returncode': 0}
+[0.093721] (raspbot_description) JobEnded: {'identifier': 'raspbot_description', 'rc': 0}
+[0.095264] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/packages/raspbot_sim\n'}
+[0.095473] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig.cmake\n'}
+[0.095673] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig-version.cmake\n'}
+[0.095839] (raspbot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.xml\n'}
+[0.095989] (raspbot_sim) CommandEnded: {'returncode': 0}
+[0.099790] (-) TimerEvent: {}
+[0.113026] (raspbot_sim) JobEnded: {'identifier': 'raspbot_sim', 'rc': 0}
+[0.114293] (-) EventReactorShutdown: {}
