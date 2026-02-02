@@ -12,13 +12,14 @@ RUN apt update && apt install -y \
     mesa-utils \
     libgl1-mesa-dri \
     libgl1-mesa-glx \
-    x11-apps
+    x11-apps \
+ && rm -rf /var/lib/apt/lists/*
 
 # ===== ROS2 repository =====
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
     | gpg --dearmor -o /usr/share/keyrings/ros-archive-keyring.gpg
 
-RUN echo "deb [arch=arm64 signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
     http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" \
     > /etc/apt/sources.list.d/ros2.list
 
@@ -26,18 +27,21 @@ RUN echo "deb [arch=arm64 signed-by=/usr/share/keyrings/ros-archive-keyring.gpg]
 RUN curl -sSL https://packages.osrfoundation.org/gazebo.gpg \
     | gpg --dearmor -o /usr/share/keyrings/gazebo-archive-keyring.gpg
 
-RUN echo "deb [arch=arm64 signed-by=/usr/share/keyrings/gazebo-archive-keyring.gpg] \
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/gazebo-archive-keyring.gpg] \
     http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" \
     > /etc/apt/sources.list.d/gazebo-stable.list
 
-# ===== ROS2 Humble + Gazebo Fortress =====
+# ===== ROS2 Humble + Gazebo Fortress (ROS2 Humbleのros_gz系と整合) =====
 RUN apt update && apt install -y \
     ros-humble-desktop \
     ros-humble-ros-gz \
-    python3-rosdep
+    gz-fortress \
+    python3-rosdep \
+ && rm -rf /var/lib/apt/lists/*
 
 # ===== rosdep =====
-RUN rosdep init && rosdep update
+RUN rosdep init || true
+RUN rosdep update
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 

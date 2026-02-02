@@ -2,21 +2,21 @@
 
 mac bookで作業する場合のubuntu22.04とROS2によるロボット開発
 
-# 環境構築
+## 環境構築
 
 - 実機の環境であるubuntu22.04とROS2 Humbleをローカルで動かすためのシミュレーション環境の構築手順をまとめます。
 
-## ロボットのシミュレーション環境構築手順
+## ロボットのシミュレーション環境構築手順（macOS + Apple Silicon想定）
 
-## 1. リポジトリのクローン
+### 1. リポジトリのクローン
 
 - このページのURLをgit cloneしてください。
 
-# 2. Dockerインストール
+### 2. Dockerインストール
 
-https://www.docker.com/products/docker-desktop/
+Docker Desktop をインストールします（リンク: `https://www.docker.com/products/docker-desktop/`）。
 
-## 2.1 Docker Desktopで「Use Rosetta for x86/amd64 emulation」をOFFにする方法（macOS）
+#### 2.1 Docker Desktopで「Use Rosetta for x86/amd64 emulation」をOFF（macOS）
 
 - windows環境の場合は不要
 
@@ -29,7 +29,7 @@ https://www.docker.com/products/docker-desktop/
 6. 右下の Apply & Restart をクリック
    - Docker Desktop が再起動される
 
-# 3. XQuartz（Gazebo GUI用）
+### 3. XQuartz（Gazebo GUI表示用）
 
 ```bash
 brew install --cask xquartz
@@ -42,10 +42,18 @@ brew install --cask xquartz
 3. 一度 XQuartz を終了 → 再起動
 
 ```bash
+xhost +localhost
+```
+
+表示できない場合（`No protocol specified` / `Can't open display` 等）は、暫定対応として下記も試してください（セキュリティ的に緩くなるので、検証時のみ推奨）。
+
+```bash
 xhost + 127.0.0.1
 ```
 
-# 4. Docker イメージのビルド
+> 補足: Gazebo（`gz`）は**コンテナ内**で動かします。macOS側にGazeboを別途インストールする必要はありません。
+
+### 4. Docker イメージのビルド
 
 - 10分ほどかかるので待機\
 
@@ -53,36 +61,53 @@ xhost + 127.0.0.1
 docker build -t ros2-humble-gazebo .
 ```
 
-# 5. コンテナ起動（Gazebo GUI 対応）
+```bash
+docker build --no-cache -t ros2-humble-gazebo .
+```
+
+- キャッシュを使わない場合のコマンド例
+
+### 5. コンテナ起動（Gazebo GUI 対応 / macOS）
 
 ```bash
 docker run -it --rm \
   --platform linux/arm64 \
   -e DISPLAY=host.docker.internal:0 \
-  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -e QT_X11_NO_MITSHM=1 \
+  -e LIBGL_ALWAYS_INDIRECT=1 \
   --name ros2_sim \
   ros2-humble-gazebo
 ```
 
-# 6. 動作確認（必ずこの順で）
+> macOSでは `/tmp/.X11-unix` をマウントする方式は基本的に効きません（Linux向け手順）。XQuartzへTCPで描画します。
 
-## 6.1 X11 疎通確認
+### 6. 動作確認（この順で）
+
+#### 6.1 Gazebo（Ignition Fortress）の確認
+
+```bash
+ign --version
+ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
+```
+
+#### 6.2 X11 疎通確認（コンテナ内で）
 
 ```bash
 xeyes
 ```
 
-## 6.2 Gazebo 起動
+#### 6.3 ROS2経由でGazebo起動（コンテナ内）
 
 ROS経由:
 
 ```bash
-ros2 launch ros_gz_sim gz_sim.launch.py
+source /opt/ros/humble/setup.bash
+ros2 launch ros_gz_sim gz_sim.launch.py gz_args:="-v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf"
 ```
 
-# 7. ROS2 × Gazebo 連携確認
+### 7. ROS2 × Gazebo 連携確認（例）
 
 ```bash
 ros2 topic list
-ros2 run ros_gz_bridge parameter_bridge
+ros2 run ros_gz_bridge parameter_bridge /clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock
 ```
