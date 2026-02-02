@@ -1,0 +1,21 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/launch/sim.launch.py
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/worlds/raspbot_world.sdf
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.config
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/models/raspbot/model.sdf
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/package_run_dependencies/raspbot_sim
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/parent_prefix_path/raspbot_sim
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.sh
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/environment/path.dsv
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.bash
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.sh
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.zsh
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/local_setup.dsv
+-- Symlinking: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.dsv
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/ament_index/resource_index/packages/raspbot_sim
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig.cmake
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/cmake/raspbot_simConfig-version.cmake
+-- Up-to-date symlink: /work/ros2_ws/install/raspbot_sim/share/raspbot_sim/package.xml
