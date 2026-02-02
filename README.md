@@ -107,6 +107,13 @@ docker run -it --rm \
 ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
 ```
 
+noVNC画面（添付のようなUbuntuロゴ/黒背景）は「デスクトップが起動した状態」です。Gazeboを起動するとここにウィンドウが出ます。
+
+- **操作**: マウス/キーボード操作はそのままブラウザ上で可能です
+- **noVNCのサイドバー**: 左端のタブ（矢印）から開けます（特殊キー送信 / フルスクリーン等）
+- **ウィンドウ操作（Fluxbox）**: 右クリックでメニュー、ウィンドウが前面に出ない時は `Alt+Tab`
+- **別コマンドを打ちたい**: mac側の別ターミナルで `docker exec -it ros2_sim bash` を使うと、同じコンテナにもう1つシェルを開けます
+
 ### 6. 動作確認（この順で）
 
 #### 6.1 Gazebo（Ignition Fortress）の確認
