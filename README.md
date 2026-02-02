@@ -28,31 +28,9 @@ Docker Desktop をインストールします
 6. 右下の Apply & Restart をクリック
    - Docker Desktop が再起動される
 
-### 3. XQuartz（Gazebo GUI表示用）
+> 補足: Gazebo（Ignition Fortress）は**コンテナ内**で動かします。macOS側にGazeboを別途インストールする必要はありません。
 
-```bash
-brew install --cask xquartz
-```
-
-- XQuartz 起動後：
-
-1. 設定 → Security
-2. Allow connections from network clientsにチェック
-3. 一度 XQuartz を終了 → 再起動
-
-```bash
-xhost +localhost
-```
-
-表示できない場合（`No protocol specified` / `Can't open display` 等）は、暫定対応として下記も試してください（セキュリティ的に緩くなるので、検証時のみ推奨）。
-
-```bash
-xhost + 127.0.0.1
-```
-
-> 補足: Gazebo（`gz`）は**コンテナ内**で動かします。macOS側にGazeboを別途インストールする必要はありません。
-
-### 4. Docker イメージのビルド
+### 3. Docker イメージのビルド
 
 - 10分ほどかかるので待機\
 
@@ -66,30 +44,9 @@ docker build --no-cache -t ros2-humble-gazebo .
 
 - キャッシュを使わない場合のコマンド例
 
-### 5. コンテナ起動（Gazebo GUI 対応 / macOS）
+### 4. コンテナGUIをブラウザで見る（noVNC方式 / 推奨）
 
-```bash
-docker run -it --rm \
-  --platform linux/arm64 \
-  -e DISPLAY=host.docker.internal:0 \
-  -e QT_X11_NO_MITSHM=1 \
-  -e LIBGL_ALWAYS_INDIRECT=1 \
-  -e QT_OPENGL=software \
-  -e QT_QUICK_BACKEND=software \
-  -e LIBGL_ALWAYS_SOFTWARE=1 \
-  --name ros2_sim \
-  ros2-humble-gazebo
-```
-
-> macOSでは `/tmp/.X11-unix` をマウントする方式は基本的に効きません（Linux向け手順）。XQuartzへTCPで描画します。
->
-> `Failed to create OpenGL context` が出る場合は、上記のように **Qt/Mesaをソフトウェアレンダリング**に寄せるとGUIが起動しやすいです（速度は落ちます）。
->
-> それでも `GLXCreateNewContext` などで落ちる場合、XQuartz経由のGLXが環境的に厳しいことがあります。その場合は下の **noVNC方式（推奨）**を使ってください。
-
-### 5.1 コンテナGUIをブラウザで見る（noVNC方式 / 推奨）
-
-XQuartzを使わず、コンテナ内で仮想ディスプレイ（Xvfb）を起動し、noVNCでブラウザ表示します。
+XQuartzは使わず、コンテナ内で仮想ディスプレイ（Xvfb）を起動し、noVNCでブラウザ表示します。
 
 ```bash
 docker build -t ros2-humble-gazebo .
@@ -101,9 +58,12 @@ docker run -it --rm \
   ros2-humble-gazebo /usr/local/bin/start-vnc.sh
 ```
 
-ブラウザで `http://localhost:6080/vnc.html` を開き、コンテナのシェルでGazeboを起動します。
+ブラウザで `http://localhost:6080/vnc.html` を開きます（ここにGazeboのウィンドウが出ます）。
+
+その後、上の `docker run ...` で開いている**コンテナのシェル（root@...）**でGazeboを起動します。
 
 ```bash
+ign gazebo --versions
 ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
 ```
 
@@ -114,12 +74,25 @@ noVNC画面（添付のようなUbuntuロゴ/黒背景）は「デスクトッ�
 - **ウィンドウ操作（Fluxbox）**: 右クリックでメニュー、ウィンドウが前面に出ない時は `Alt+Tab`
 - **別コマンドを打ちたい**: mac側の別ターミナルで `docker exec -it ros2_sim bash` を使うと、同じコンテナにもう1つシェルを開けます
 
-### 6. 動作確認（この順で）
+#### 4.1 ロボットが最初から出るデモワールド例
+
+`empty.sdf` は空のワールドなので、ロボットは出てきません。まずはロボットが含まれるデモで動作確認します。
+
+```bash
+ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/diff_drive.sdf
+```
+
+同梱ワールド一覧:
+
+```bash
+ls /usr/share/ignition/ignition-gazebo6/worlds
+```
+
+### 5. 動作確認（この順で）
 
 #### 6.1 Gazebo（Ignition Fortress）の確認
 
 ```bash
-ign gazebo --versions
 ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
 ```
 
@@ -128,27 +101,6 @@ ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf
 ```bash
 xeyes
 ```
-
-#### 6.2.1 OpenGL/GLX 疎通確認（コンテナ内で・GUIクラッシュ時に有効）
-
-GazeboのGUIが `Failed to create OpenGL context` や `Segmentation fault` で落ちる場合、まずGLXが有効か確認します。
-
-```bash
-glxinfo -B
-glxinfo -B -i
-```
-
-`OpenGL renderer string` が表示されずエラーになる場合は、macOS側のXQuartz設定（Indirect GLX）が原因のことが多いです。
-
-#### 6.2.2 macOS（XQuartz）側のIndirect GLXを有効化（必要な場合）
-
-XQuartzを終了した上で、macOS側のターミナルで実行 → XQuartzを再起動してください。
-
-```bash
-defaults write org.xquartz.X11 enable_iglx -bool true
-```
-
-その後、XQuartz側で `xhost +localhost`（もしくは一時的に `xhost + 127.0.0.1`）を実行してから再度コンテナを起動します。
 
 #### 6.3 ROS2経由でGazebo起動（コンテナ内）
 

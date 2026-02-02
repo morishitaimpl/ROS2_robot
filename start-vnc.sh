@@ -10,8 +10,8 @@ chmod 700 "${XDG_RUNTIME_DIR}"
 # Prefer software rendering (Docker Desktop for Mac has no real GPU passthrough)
 export QT_X11_NO_MITSHM=1
 export QT_OPENGL=software
-export QT_QUICK_BACKEND=software
 export LIBGL_ALWAYS_SOFTWARE=1
+export QT_XCB_FORCE_SOFTWARE_OPENGL=1
 
 VNC_PORT="${VNC_PORT:-5900}"
 NOVNC_PORT="${NOVNC_PORT:-6080}"
@@ -39,5 +39,12 @@ websockify --web "${NOVNC_WEB_DIR}" "${NOVNC_PORT}" "localhost:${VNC_PORT}" >/tm
 echo "[start-vnc] Ready. Open: http://localhost:${NOVNC_PORT}/vnc.html"
 echo "[start-vnc] In this shell, run e.g.: ign gazebo -v 4 -r /usr/share/ignition/ignition-gazebo6/worlds/empty.sdf"
 
-exec bash -l
+# Keep container alive both with and without TTY.
+# - `docker run -it ... start-vnc.sh` -> interactive shell
+# - `docker run -d  ... start-vnc.sh` -> stay alive so you can `docker exec`
+if [[ -t 0 ]]; then
+  exec bash -l
+else
+  tail -f /dev/null
+fi
 
