@@ -28,17 +28,29 @@ def generate_launch_description() -> LaunchDescription:
     )
 
     # Bridge: cmd_vel (ROS->Gazebo), camera image/info (Gazebo->ROS), ultrasonic scan (Gazebo->ROS), clock (Gazebo->ROS)
+    # Note: Depending on Gazebo / ros_gz versions, the Gazebo message namespace may be
+    # `ignition.msgs.*` or `gz.msgs.*`. We try ignition first, then fall back to gz.
+    bridge_args_ignition = (
+        "/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock "
+        "/model/raspbot/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist "
+        "/raspbot/camera@sensor_msgs/msg/Image[ignition.msgs.Image "
+        "/raspbot/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo "
+        "/raspbot/ultrasonic@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
+    )
+    bridge_args_gz = (
+        "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock "
+        "/model/raspbot/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist "
+        "/raspbot/camera@sensor_msgs/msg/Image[gz.msgs.Image "
+        "/raspbot/camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo "
+        "/raspbot/ultrasonic@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan"
+    )
     bridge = ExecuteProcess(
         cmd=[
             "bash",
             "-lc",
             "source /opt/ros/humble/setup.bash && "
-            "ros2 run ros_gz_bridge parameter_bridge "
-            "/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock "
-            "/model/raspbot/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist "
-            "/raspbot/camera@sensor_msgs/msg/Image[ignition.msgs.Image "
-            "/raspbot/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo "
-            "/raspbot/ultrasonic@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan",
+            f"(ros2 run ros_gz_bridge parameter_bridge {bridge_args_ignition} || "
+            f"ros2 run ros_gz_bridge parameter_bridge {bridge_args_gz})",
         ],
         output="screen",
     )

@@ -44,6 +44,18 @@ def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--seconds", type=float, default=1.0, help="Duration to drive")
     parser.add_argument("--rate", type=float, default=10.0, help="Publish rate (Hz)")
+    parser.add_argument(
+        "--topic",
+        type=str,
+        default=CMD_VEL_TOPIC,
+        help="cmd_vel topic (default matches raspbot_sim bridge)",
+    )
+    parser.add_argument(
+        "--wait-subscriber",
+        type=float,
+        default=2.0,
+        help="Wait up to N seconds for a subscriber (bridge) to appear; 0 disables",
+    )
 
     # Direct Twist
     parser.add_argument("--vx", type=float, default=0.0, help="linear.x (m/s)")
@@ -82,7 +94,8 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     rclpy.init(args=None)
     node = rclpy.create_node("motor_test_sim")
-    pub = node.create_publisher(Twist, CMD_VEL_TOPIC, 10)
+    topic = str(args.topic)
+    pub = node.create_publisher(Twist, topic, 10)
 
     msg = Twist()
     msg.linear.x = float(vx)
@@ -93,8 +106,19 @@ def main(argv: Optional[list[str]] = None) -> int:
     t0 = time.monotonic()
 
     node.get_logger().info(
-        f"Publishing {CMD_VEL_TOPIC}: vx={msg.linear.x:.3f}, vy={msg.linear.y:.3f}, wz={msg.angular.z:.3f} for {args.seconds:.2f}s"
+        f"Publishing {topic}: vx={msg.linear.x:.3f}, vy={msg.linear.y:.3f}, wz={msg.angular.z:.3f} for {args.seconds:.2f}s"
     )
+
+    # Helpful diagnostics: if the ROS<->Gazebo bridge isn't up, there may be 0 subscribers.
+    if float(args.wait_subscriber) > 0:
+        deadline = time.monotonic() + float(args.wait_subscriber)
+        while pub.get_subscription_count() == 0 and time.monotonic() < deadline:
+            rclpy.spin_once(node, timeout_sec=0.05)
+        if pub.get_subscription_count() == 0:
+            node.get_logger().warning(
+                "No subscribers detected for cmd_vel. "
+                "Is `ros2 launch raspbot_sim sim.launch.py` running (including ros_gz_bridge)?"
+            )
 
     try:
         while time.monotonic() - t0 < float(args.seconds):
