@@ -315,7 +315,11 @@
     </joint>
 
     <!-- Mecanum drive plugin (command topic: /model/raspbot/cmd_vel) -->
-    <plugin filename="ignition-gazebo-mecanum-drive-system" name="ignition::gazebo::systems::MecanumDrive">
+    <!-- NOTE:
+         Some distros ship the system plugin library with the Gazebo major version in the filename.
+         If the robot doesn't move and `/model/raspbot/cmd_vel` shows 0 subscribers on Gazebo transport,
+         it usually means the system plugin didn't load due to filename mismatch. -->
+    <plugin filename="libignition-gazebo6-mecanum-drive-system.so" name="ignition::gazebo::systems::MecanumDrive">
       <front_left_joint>front_left_wheel_joint</front_left_joint>
       <front_right_joint>front_right_wheel_joint</front_right_joint>
       <back_left_joint>rear_left_wheel_joint</back_left_joint>
@@ -323,6 +327,7 @@
       <wheel_separation>0.18</wheel_separation>
       <wheelbase>0.22</wheelbase>
       <wheel_radius>0.05</wheel_radius>
+      <topic>/model/raspbot/cmd_vel</topic>
       <min_acceleration>-5</min_acceleration>
       <max_acceleration>5</max_acceleration>
     </plugin>
