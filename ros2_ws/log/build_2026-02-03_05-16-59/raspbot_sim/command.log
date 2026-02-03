@@ -1,0 +1,4 @@
+Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_sim -- -j12 -l12
+Invoking command in '/work/ros2_ws/build/raspbot_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim
+Invoked command in '/work/ros2_ws/build/raspbot_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_sim

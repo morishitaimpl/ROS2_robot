@@ -18,6 +18,21 @@ macOS上で ROS2 Humble + Gazeboのシミュレーション開発を行う手順
 docker build -t ros2-humble-gazebo .
 ```
 
+### OpenCV / PyTorch を入れたい場合
+
+このイメージは追加の Python ライブラリをビルド引数で任意インストールできます。
+
+- OpenCV（推奨: apt の `python3-opencv`）: デフォルトで有効（`INSTALL_OPENCV=1`）
+- PyTorch（CPU, pip）: デフォルト無効（`INSTALL_PYTORCH=0`）
+
+例: PyTorch も含めてビルドする
+
+```bash
+docker build -t ros2-humble-gazebo \
+  --build-arg INSTALL_PYTORCH=1 \
+  .
+```
+
 # 2. noVNCコンテナを起動
 
 リポジトリを `/work` にマウントします（`ros2_ws/` をコンテナ内でビルドするため）。

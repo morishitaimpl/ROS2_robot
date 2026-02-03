@@ -1,0 +1,22 @@
+[0.017s] Invoking command in '/work/ros2_ws/build/raspbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_description -- -j12 -l12
+[0.037s] Invoked command in '/work/ros2_ws/build/raspbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /work/ros2_ws/build/raspbot_description -- -j12 -l12
+[0.045s] Invoking command in '/work/ros2_ws/build/raspbot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_description
+[0.049s] -- Install configuration: ""
+[0.050s] -- Execute custom install script
+[0.050s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/urdf/raspbot.urdf.xacro
+[0.051s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/package_run_dependencies/raspbot_description
+[0.051s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/parent_prefix_path/raspbot_description
+[0.053s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.sh
+[0.053s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/ament_prefix_path.dsv
+[0.054s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.sh
+[0.055s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/environment/path.dsv
+[0.056s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.bash
+[0.057s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.sh
+[0.057s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.zsh
+[0.058s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/local_setup.dsv
+[0.059s] -- Symlinking: /work/ros2_ws/install/raspbot_description/share/raspbot_description/package.dsv
+[0.064s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/ament_index/resource_index/packages/raspbot_description
+[0.065s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig.cmake
+[0.066s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/cmake/raspbot_descriptionConfig-version.cmake
+[0.066s] -- Up-to-date symlink: /work/ros2_ws/install/raspbot_description/share/raspbot_description/package.xml
+[0.068s] Invoked command in '/work/ros2_ws/build/raspbot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /work/ros2_ws/build/raspbot_description
