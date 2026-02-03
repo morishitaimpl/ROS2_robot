@@ -172,12 +172,12 @@
         </inertia>
       </inertial>
       <visual name="visual">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
       </visual>
       <collision name="collision">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <surface>
           <friction>
@@ -202,12 +202,12 @@
         </inertia>
       </inertial>
       <visual name="visual">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
       </visual>
       <collision name="collision">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <surface>
           <friction>
@@ -232,12 +232,12 @@
         </inertia>
       </inertial>
       <visual name="visual">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
       </visual>
       <collision name="collision">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <surface>
           <friction>
@@ -262,12 +262,12 @@
         </inertia>
       </inertial>
       <visual name="visual">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
       </visual>
       <collision name="collision">
-        <pose>0 0 0 0 1.5707 0</pose>
+        <pose>0 0 0 1.5707 0 0</pose>
         <geometry><cylinder><radius>0.05</radius><length>0.02</length></cylinder></geometry>
         <surface>
           <friction>

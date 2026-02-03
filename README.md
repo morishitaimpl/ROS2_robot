@@ -3,15 +3,17 @@
 # 環境構築
 macOS上で ROS2 Humble + Gazeboのシミュレーション開発を行う手順です。  
 
+担当機能に応じてインストールするライブラリが異なります。
+
+
 ## 前提
 
 - Docker Desktop をインストール: `https://www.docker.com/products/docker-desktop/`
-- Apple Siliconの場合: Docker Desktop の設定 `Use Rosetta for x86/amd64 emulation` は OFF推奨
-
-## 手順（確実に「4輪モデルが表示」まで）
+- Apple Siliconの場合
+   - 設定 → General → Use Rosetta for x86_64/amd64 emulation on Apple Silicon のチェックを外す
 
 # 1. Dockerイメージをビルド
-
+- 以下ターミナルから実行
 ```bash
 docker build -t ros2-humble-gazebo .
 ```
@@ -84,10 +86,6 @@ source /opt/ros/humble/setup.bash
 source install/setup.bash
 python3 /work/ros2_ws/src/motor_test_sim.py --seconds 1.0 --vx 0.2
 ```
-
-- **前進**: `--vx 0.2`
-- **横移動（メカナム）**: `--vy 0.2`
-- **旋回**: `--wz 0.8`
 
 例:
 
